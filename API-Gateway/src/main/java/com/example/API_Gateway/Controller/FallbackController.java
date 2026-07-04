@@ -1,0 +1,19 @@
+package com.example.API_Gateway.Controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
+
+@RestController
+public class FallbackController {
+
+    @GetMapping("/employeeServiceFallback")
+    public Mono<String> employeeFallbackMethod() {
+        return Mono.just("Employee service is currently unavailable.");
+    }
+
+    @GetMapping("/addressServiceFallback")
+    public Mono<String> addressFallbackMethod() {
+        return Mono.just("Address service is currently unavailable.");
+    }
+}
